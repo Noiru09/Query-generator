@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import sqlserver from "./assets/sql-server.png";
+import sqlServer from "./assets/sql-server.png";
 import { useState } from "react";
 
 function App() {
