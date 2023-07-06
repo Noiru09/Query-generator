@@ -13,7 +13,7 @@ function App() {
   };
 
   const generateQuery = async () => {
-    const response = await fetch("http://localhost:3002/generate", {
+    const response = await fetch("http://localhost:3005/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
