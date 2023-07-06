@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import sqlserver from "./assets/sql-server.png";
 import { useState } from "react";
 
-export default function App() {
+function App() {
   const [userPrompt, setUserPrompt] = useState("");
   const [sqlQuery, setSqlQuery] = useState("");
 
@@ -43,3 +43,4 @@ export default function App() {
     </main>
   );
 }
+export default App;
