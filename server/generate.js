@@ -2,15 +2,15 @@ import openaiClient from "./api.js";
 
 const generate = async (queryDescription) => {
 
-  const daVinci = async (queryDescription) => {
+  /*const daVinci = async (queryDescription) => {
     const response = await openaiClient.createCompletion({
       model: 'text-davinci-003',
       prompt: `Hello`,
-      max_tokens: 1000,
+      max_tokens: 100,
       temperature: 0,
     });
     return response.data.choices[0].text;
-  };
+  };*/
 
   const chatGPT = async (queryDescription) => {
     const message = [
@@ -22,12 +22,13 @@ const generate = async (queryDescription) => {
     const response = await openaiClient.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: message,
+      max_tokens:100
     });
 
     return response.data.choices[0].message.content;
   }
 
-  const sqlQuery = await daVinci(queryDescription);
+  const sqlQuery = await chatGPT(queryDescription);
   return sqlQuery;
 
 };
