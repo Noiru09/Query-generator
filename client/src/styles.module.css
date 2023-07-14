@@ -23,8 +23,8 @@
   .main {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
+    align-items: flex-start;
+    padding-top: 0px;
   }
   .main .icon {
     width: 90px;
@@ -47,6 +47,7 @@
     border-radius: 4px;
     margin-bottom: 24px;
     outline-color: #000000;
+
   }
   .main ::placeholder {
     color: #6464bf;
@@ -58,7 +59,7 @@
     background-color: #21cccc;
     border: 3px solid rgb(0, 0, 0);
     border-radius: 4px;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
   }
   .main .result {
