@@ -1,5 +1,7 @@
 import styles from "./styles.module.css";
-import sqlServer from "./assets/sql-server.png";
+import sqlServer from "./assets/data-searching.png";
+import sqlicon from "./assets/sql-server.png";
+import mongo from "./assets/Mongo-DB-Features.jpg";
 import { useState } from "react";
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
 
   return (
     <main className={styles.main}>
-      <img src={sqlServer} className={styles.icon} alt="SQL server" />
+      <img src={sqlServer} className={styles.icon} alt="Generate" />
+      <img src={sqlicon} className={styles.sql} alt="SQL server" />
+      <img src={mongo} className={styles.mon} alt="mongoDB server" />
       <h3>Generate SQL</h3>
       <form onSubmit={onSubmit}>
         <input
