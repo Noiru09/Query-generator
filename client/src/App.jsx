@@ -1,8 +1,6 @@
-import styles from "./styles.module.css";
-import sqlServer from "./assets/data-searching.png";
-import sqlicon from "./assets/sql-server.png";
-import mongo from "./assets/Mongo-DB-Features.jpg";
 import { useState } from "react";
+import Banner from "./components/Banner";
+import QueryInput from "./components/QueryInput";
 
 function App() {
   const [userPrompt, setUserPrompt] = useState("");
@@ -28,8 +26,8 @@ function App() {
   };
 
   return (
-    <main className={styles.main}>
-      <img src={sqlServer} className={styles.icon} alt="Generate" />
+    <main className="bg-gradient-to-b from-violet-400/40 via-transparent">
+{/*       <img src={sqlServer} className={styles.icon} alt="Generate" />
       <img src={sqlicon} className={styles.sql} alt="SQL server" />
       <img src={mongo} className={styles.mon} alt="mongoDB server" />
       <h3>Generate SQL</h3>
@@ -43,7 +41,18 @@ function App() {
         />
         <input type="submit" value="Generate query" />
       </form>
-      <pre>{sqlQuery}</pre>
+      <pre>{sqlQuery}</pre> */}
+      <section className="py-40 space-y-8">
+        <div>
+
+        <Banner />
+        </div>
+
+        <div className="flex justify-center">
+          <QueryInput />
+        </div>
+        
+      </section>
     </main>
   );
 }
