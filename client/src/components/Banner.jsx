@@ -6,7 +6,7 @@ const Banner = () => {
           className="font-extrabold text-indigo-700 text-5xl md:text-6xl
       lg:text-7xl"
         >
-          QueryGen
+          Query Master
         </h1>
       
       <p className="">
