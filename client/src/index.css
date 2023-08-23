@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities{
+    .dbButton{
+        @apply flex items-center hover:bg-teal-500/10  p-2 rounded-lg
+    }
+}

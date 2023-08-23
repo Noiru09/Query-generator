@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Banner from "./components/Banner";
 import QueryInput from "./components/QueryInput";
+import DbSelect from "./components/DbSelect";
 
 function App() {
   const [userPrompt, setUserPrompt] = useState("");
@@ -26,7 +27,7 @@ function App() {
   };
 
   return (
-    <main className="bg-gradient-to-b from-violet-400/40 via-transparent">
+    <main className="bg-gradient-to-b from-violet-400/40 via-transparent ">
 {/*       <img src={sqlServer} className={styles.icon} alt="Generate" />
       <img src={sqlicon} className={styles.sql} alt="SQL server" />
       <img src={mongo} className={styles.mon} alt="mongoDB server" />
@@ -47,7 +48,9 @@ function App() {
 
         <Banner />
         </div>
-
+      <div>
+        <DbSelect/>
+      </div>
         <div className="flex justify-center">
           <QueryInput />
         </div>
