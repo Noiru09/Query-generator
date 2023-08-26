@@ -14,8 +14,8 @@ const History = () => {
       <div>
         <div
           className="bg-indigo-100 p-4 rounded-lg h-[500px]
-        overflow-y-scroll scrollbar-thumb-cyan-500 scrollbar-thin
-        scrollbar-track-transparent"
+        overflow-y-scroll scrollbar-thumb-cyan-100 scrollbar-thin
+        scrollbar-track-cyan-200"
         >
           {sampleHistory.map((item) => {
             return (
