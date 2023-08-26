@@ -45,20 +45,20 @@ const History = () => {
               No history to show 😢
             </p>
           ) : (
-          historyData?.map((item, index) => {
-            return (
-              <div className="flex space-x-2" key={index}>
-                <h1 className="text-md font-medium">{index + 1}.</h1>
-                <div className="space-y-1 mb-4">
-                  <p className="text-md font-medium">{item.queryDesc}</p>
-                  <p>
-                    <span className="font-medium text-red-600">Result:</span>{" "}
-                    {item.result}
-                  </p>
+            historyData?.map((item, index) => {
+              return (
+                <div className="flex space-x-2" key={index}>
+                  <h1 className="text-md font-medium">{index + 1}.</h1>
+                  <div className="space-y-1 mb-4">
+                    <p className="text-md font-medium">{item.queryDesc}</p>
+                    <p>
+                      <span className="font-medium text-red-600">Result:</span>{" "}
+                      {item.result}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            })
           )}
         </div>
       </div>
