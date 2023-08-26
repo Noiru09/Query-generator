@@ -1,13 +1,14 @@
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 const JWTsecret = process.env.JWT_SECRET;
 
-exports.createToken = (userId) => {
+const createToken = (userId) => {
 	const token = jwt.sign({ id: userId }, JWTsecret, { expiresIn: "1h" });
 	return token;
 };
 
-exports.verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
 	let token = req.headers.authorization;
 	if (!token) {
 		return res.status(401).json({ error: "Unauthorized" });
@@ -22,3 +23,5 @@ exports.verifyToken = (req, res, next) => {
 	}
 	next();
 };
+
+export default { createToken, verifyToken };

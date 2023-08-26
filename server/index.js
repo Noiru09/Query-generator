@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-const jwtUtils = require("./utils/jwt.js");
-const User = require("./models/userSchema.js");
-const mongoose = require("mongoose");
+import jwtUtils from "./utils/jwt.js";
+import User from "./models/userSchema.js";
+import mongoose from "mongoose";
 
 const app = express();
 app.use(express.json()); 
