@@ -2,6 +2,7 @@ import React from "react";
 import { BiLogoMongodb } from "react-icons/bi";
 import { PiFileSqlBold } from "react-icons/pi";
 import { SiMariadb } from "react-icons/si";
+import { BsFillDatabaseFill } from "react-icons/bs";
 import { useDb } from "../Lib/DBSelectContext";
 
 const DbSelect = () => {
@@ -34,6 +35,13 @@ const DbSelect = () => {
       >
         <SiMariadb size={40} color="#000000" />
         <h6>MariaDB</h6>
+      </button>
+      <button
+        className={`dbButton ${selectedDb === "PLSQL" ? "selected" : ""}`}
+        onClick={() => handleDbSelect("PLSQL")}
+      >
+        <BsFillDatabaseFill size={40} color="#000000" />
+        <h6>PLSQL</h6>
       </button>
     </div>
   );

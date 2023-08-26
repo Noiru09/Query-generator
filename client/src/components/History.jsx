@@ -46,6 +46,7 @@ const History = () => {
             <option value="MongoDB">MongoDB</option>
             <option value="SQL">SQL</option>
             <option value="MariaDB">MariaDB</option>
+            <option value="PLSQL">PL/SQL</option>
           </optgroup>
         </select>
       </div>
