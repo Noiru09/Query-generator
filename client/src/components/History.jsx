@@ -37,7 +37,12 @@ const History = () => {
         overflow-y-scroll scrollbar-thumb-cyan-100 scrollbar-thin
         scrollbar-track-cyan-200"
         >
-          {historyData?.map((item, index) => {
+          {historyData?.length === 0 ? (
+            <p className="text-center text-lg font-medium">
+              No history to show 😢
+            </p>
+          ) : (
+          historyData?.map((item, index) => {
             return (
               <div className="flex space-x-2" key={index}>
                 <h1 className="text-md font-medium">{index+1}.</h1>
@@ -50,7 +55,8 @@ const History = () => {
                 </div>
               </div>
             );
-          })}
+          })
+          )}
         </div>
       </div>
       {/* for selecting db */}

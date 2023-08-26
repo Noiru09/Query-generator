@@ -20,12 +20,10 @@ const routes = (client) => {
   router.get("/history/:dbName", async (req, res) => {
     try {
       const historyCollection = client.db("QueryGen").collection("history");
-      console.log("Requested dbName:", req.params.dbName);
       const historyData = await historyCollection
         .find({ dbName: req.params.dbName })
         .toArray();
       res.json(historyData);
-      console.log(historyData);
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
