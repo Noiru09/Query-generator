@@ -20,11 +20,14 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
 
+console.log("hello from server")
+
 app.post("/generate", async (req, res) => {
-  const { queryDescription } = req.body
   try {
-    const sqlQuery = await generate(queryDescription);
-    res.json({ sqlQuery });
+    const { queryDescription, dbName } = req.body
+    console.log(queryDescription, dbName )
+    const dbQuery = await generate(queryDescription, dbName);
+    res.json({ dbQuery });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
