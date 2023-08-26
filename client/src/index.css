@@ -4,6 +4,9 @@
 
 @layer utilities{
     .dbButton{
-        @apply flex items-center hover:bg-teal-500/10  p-2 rounded-lg
+        @apply flex items-center hover:bg-teal-500/30  p-2 rounded-lg
+    }
+    .selected {
+        @apply bg-teal-500/30
     }
 }

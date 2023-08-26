@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { useDb } from "../Lib/DBSelectContext";
 
 const QueryInput = () => {
   const [userPrompt, setUserPrompt] = useState("");
   const [sqlQuery, setSqlQuery] = useState("");
+  const { selectedDb } = useDb();
 
   const submitRes = async (e) => {
     e.preventDefault();
@@ -12,16 +14,20 @@ const QueryInput = () => {
   };
 
   const generateQuery = async () => {
+    console.log(selectedDb, "inside request frontend");
     const response = await fetch("http://localhost:3005/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ queryDescription: userPrompt }),
+      body: JSON.stringify({
+        queryDescription: userPrompt,
+        dbName: selectedDb,
+      }),
     });
 
     const data = await response.json();
-    return data.sqlQuery.trim();
+    return data.dbQuery.trim();
   };
 
   return (
