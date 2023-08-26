@@ -7,12 +7,6 @@ const QueryInput = () => {
   const [sqlQuery, setSqlQuery] = useState("");
   const { selectedDb } = useDb();
 
-  const submitRes = async (e) => {
-    e.preventDefault();
-    const query = await generateQuery();
-    setSqlQuery(query);
-  };
-
   const generateQuery = async () => {
     console.log(selectedDb, "inside request frontend");
     const response = await fetch("http://localhost:3005/generate", {
@@ -23,11 +17,37 @@ const QueryInput = () => {
       body: JSON.stringify({
         queryDescription: userPrompt,
         dbName: selectedDb,
+        result: sqlQuery
       }),
     });
 
     const data = await response.json();
     return data.dbQuery.trim();
+  };
+
+  const addHistoryData = async (query) => {
+    const response = await fetch("http://localhost:3005/addHistory", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        queryDesc: userPrompt,
+        result: query,
+        dbName: selectedDb,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  };
+
+  const submitRes = async (e) => {
+    e.preventDefault();
+    const query = await generateQuery();
+    setSqlQuery(query);
+    console.log(query)
+    addHistoryData(await query);
   };
 
   return (

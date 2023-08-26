@@ -6,7 +6,9 @@ const generate = async (queryDescription, dbName) => {
     
     const message = [
       { role: "system", content: `You are a translator from plain English to ${dbName}.` },
-      { role: "user", content: `Convert the following natural language description into a ${dbName} query:You are a translator from plain English to ${dbName}. ${queryDescription} ` },    
+      { role: "user", content: `Convert the following natural language description into a ${dbName} query:
+      Answer only the query
+      \n\n ${queryDescription} ` },    
     ];
     const response = await openaiClient.createChatCompletion({
       model: "gpt-3.5-turbo",

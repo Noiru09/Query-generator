@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import sampleHistory from "../utils/sampleHistory";
+import { AiOutlineReload } from "react-icons/ai";
 
 const History = () => {
   const [selectedDb, setSelectedDb] = useState("MongoDB");
-  const [historyData, setHistoryData] = useState(sampleHistory);
+  const [historyData, setHistoryData] = useState([]);
   //setting the selected db
   const handleDbChange = (event) => {
     setSelectedDb(event.target.value);
@@ -78,6 +78,16 @@ const History = () => {
             <option value="PLSQL">PL/SQL</option>
           </optgroup>
         </select>
+        <button className="my-4 mx-2 block w-fit h-fit"
+        onClick={
+          () => getHistoryData(selectedDb)
+        }>
+          <AiOutlineReload 
+          color="#000000" size={30} 
+          className="hover:rotate-90 transition-transform duration-300 cursor-pointer" 
+          aria-label="refresh history"
+          />
+        </button>
       </div>
     </div>
   );

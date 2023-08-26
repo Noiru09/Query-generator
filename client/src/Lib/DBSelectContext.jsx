@@ -4,7 +4,8 @@ import React, { createContext, useContext, useState } from 'react';
 const DbContext = createContext();
 
 export const DbProvider = ({ children }) => {
-  const [selectedDb, setSelectedDb] = useState(null);
+  //setting the default state as mongodb
+  const [selectedDb, setSelectedDb] = useState('MongoDB');
 
   const setDb = (db) => {
     setSelectedDb(db);
