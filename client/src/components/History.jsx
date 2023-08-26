@@ -42,7 +42,7 @@ const History = () => {
           value={selectedDb}
           onChange={handleDbChange}
         >
-          <optgroup>
+          <optgroup label="Choose Database">
             <option value="MongoDB">MongoDB</option>
             <option value="SQL">SQL</option>
             <option value="MariaDB">MariaDB</option>
