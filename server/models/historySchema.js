@@ -10,4 +10,12 @@ const historySchema = new Schema({
         type: String,
         required: true
     },
+    result: {
+        type: String,
+        required: true
+    }
 });
+
+const History = mongoose.model("History", historySchema);
+
+export default History;
