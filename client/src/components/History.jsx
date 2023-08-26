@@ -11,15 +11,18 @@ const History = () => {
 
   const getHistoryData = async (selectedDb) => {
     console.log(selectedDb);
-    const response = await fetch(`http://localhost:3005/history/${selectedDb}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    
+    const response = await fetch(
+      `http://localhost:3005/history/${selectedDb}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     setHistoryData(data);
     return data;
   };
@@ -45,7 +48,7 @@ const History = () => {
           historyData?.map((item, index) => {
             return (
               <div className="flex space-x-2" key={index}>
-                <h1 className="text-md font-medium">{index+1}.</h1>
+                <h1 className="text-md font-medium">{index + 1}.</h1>
                 <div className="space-y-1 mb-4">
                   <p className="text-md font-medium">{item.queryDesc}</p>
                   <p>
