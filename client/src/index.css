@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        @apply scrollbar-thin scrollbar-thumb-gray-800;
+    }
+}
+
 @layer utilities{
     .dbButton{
         @apply flex items-center hover:bg-teal-500/30  p-2 rounded-lg
