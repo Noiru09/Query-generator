@@ -14,7 +14,7 @@ const History = () => {
       <div>
         <div
           className="bg-indigo-100 p-4 rounded-lg h-[500px]
-        overflow-y-scroll scrollbar-thumb-slate-800 scrollbar-thin
+        overflow-y-scroll scrollbar-thumb-cyan-500 scrollbar-thin
         scrollbar-track-transparent"
         >
           {sampleHistory.map((item) => {
@@ -42,7 +42,7 @@ const History = () => {
           value={selectedDb}
           onChange={handleDbChange}
         >
-          <optgroup label="Select DB">
+          <optgroup>
             <option value="MongoDB">MongoDB</option>
             <option value="SQL">SQL</option>
             <option value="MariaDB">MariaDB</option>
