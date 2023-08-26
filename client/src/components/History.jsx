@@ -3,6 +3,10 @@ import sampleHistory from "../utils/sampleHistory";
 
 const History = () => {
   const [selectedDb, setSelectedDb] = useState("MongoDB");
+  //setting the selected db
+  const handleDbChange = (event) => {
+    setSelectedDb(event.target.value);
+  };
 
   return (
     <div className="flex md:flex-row flex-col-reverse md:space-x-2">
@@ -31,7 +35,13 @@ const History = () => {
       </div>
       {/* for selecting db */}
       <div>
-        <select name="db" id="db" className="p-4 rounded-lg">
+        <select
+          name="db"
+          id="db"
+          className="p-4 rounded-lg"
+          value={selectedDb}
+          onChange={handleDbChange}
+        >
           <optgroup label="Select DB">
             <option value="MongoDB">MongoDB</option>
             <option value="SQL">SQL</option>
