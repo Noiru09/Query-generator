@@ -19,8 +19,6 @@ app.use(cors({ origin: "*" }));
 
 const port = process.env.PORT || 3005;
 
-import generate from "./generate.js";
-
 app.listen(port, () => {
   client.connect();
   console.log(`Listening on port ${port}...`);

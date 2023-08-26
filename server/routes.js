@@ -1,4 +1,5 @@
 import express from "express";
+import generate from "./generate.js";
 
 const router = express.Router();
 
