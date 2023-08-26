@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Banner from "./components/Banner";
 import QueryInput from "./components/QueryInput";
 import DbSelect from "./components/DbSelect";
 import HistorySection from "./components/HistorySection";
-import Login from "./components/Login";
-import { useToken } from "./Lib/TokenContext";
+
 
 function App() {
   const [userPrompt, setUserPrompt] = useState("");
   //const [sqlQuery, setSqlQuery] = useState("");
-  const { token } = useToken();
+
 /* 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -33,13 +32,6 @@ function App() {
   
 
   return (
-    <>
-    { token != '' ? 
-    <div className="">
-      <Login />
-      </div>
-      :
-
     <main className="bg-gradient-to-b from-violet-400/40 via-transparent ">
       <section className="py-40 space-y-8">
         <div>
@@ -57,8 +49,6 @@ function App() {
         <HistorySection />
       </section>
     </main>
-    }
-    </>
   );
 }
 export default App;
