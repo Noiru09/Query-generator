@@ -1,7 +1,6 @@
 import React from "react";
 import { BiLogoMongodb } from "react-icons/bi";
 import { PiFileSqlBold } from "react-icons/pi";
-import { SiSurrealdb } from "react-icons/si";
 import { SiMariadb } from "react-icons/si";
 import { useDb } from "../Lib/DBSelectContext";
 
@@ -35,13 +34,6 @@ const DbSelect = () => {
       >
         <SiMariadb size={40} color="#000000" />
         <h6>MariaDB</h6>
-      </button>
-      <button
-        className={`dbButton ${selectedDb === "SurrealDB" ? "selected" : ""}`}
-        onClick={() => handleDbSelect("SurrealDB")}
-      >
-        <SiSurrealdb size={40} color="#000000" />
-        <h6>SurrealDB</h6>
       </button>
     </div>
   );
