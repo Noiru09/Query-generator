@@ -4,49 +4,29 @@ import { MongoClient } from "mongodb";
 
 const app = express();
 //initializing the MongoDB connection
-const uri = `${process.env.MONGO_URI}`
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const uri = `${process.env.MONGO_URI}`;
+export const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-/* client.connect(err => {
-	  const collection = client.db("test").collection("devices");
-	  // perform actions on the collection object
-	  client.close();
-}); */
-const connectToMongo = async () => {
-  try {
-	await client.connect();
-	console.log("Connected correctly to server");
-  } catch (err) {
-	console.log(err.stack);
-  }
-}
-connectToMongo();
+// Pass the MongoDB client to routes
+const routes = require("./routes")(client);
 
-app.use(express.json()); 
+app.use(express.json());
 
-app.use(cors(
-  { origin: "*" }
-));
+app.use(cors({ origin: "*" }));
 
 const port = process.env.PORT || 3005;
 
 import generate from "./generate.js";
 
 app.listen(port, () => {
+  client.connect();
   console.log(`Listening on port ${port}...`);
 });
 
-console.log("hello from server")
+app.use("/", routes);
 
+console.log("hello from server");
 
-app.post("/generate", async (req, res) => {
-  try {
-    const { queryDescription, dbName } = req.body
-    console.log(queryDescription, dbName )
-    const dbQuery = await generate(queryDescription, dbName);
-    res.json({ dbQuery });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-});
