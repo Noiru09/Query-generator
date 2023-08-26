@@ -1,7 +1,27 @@
 import express from "express";
 import cors from "cors";
+import { MongoClient } from "mongodb";
 
 const app = express();
+//initializing the MongoDB connection
+const uri = `${process.env.MONGO_URI}`
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+/* client.connect(err => {
+	  const collection = client.db("test").collection("devices");
+	  // perform actions on the collection object
+	  client.close();
+}); */
+const connectToMongo = async () => {
+  try {
+	await client.connect();
+	console.log("Connected correctly to server");
+  } catch (err) {
+	console.log(err.stack);
+  }
+}
+connectToMongo();
+
 app.use(express.json()); 
 
 app.use(cors(
@@ -17,6 +37,7 @@ app.listen(port, () => {
 });
 
 console.log("hello from server")
+
 
 app.post("/generate", async (req, res) => {
   try {
